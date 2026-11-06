@@ -1,0 +1,6 @@
+{
+  "name": "Monkhood Club - Festive Season Special",
+  "description": "Join Monkhood Club during the grand festive season with an exclusive 20% discount on all memberships. Daily mindfulness, wisdom sessions, and digital sangha.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
