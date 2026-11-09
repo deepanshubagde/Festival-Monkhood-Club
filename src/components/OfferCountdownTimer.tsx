@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Flame, Clock, AlertTriangle, Sparkles } from 'lucide-react';
+import { Flame, Clock } from 'lucide-react';
 
 interface TimeLeft {
   hours: number;
@@ -12,8 +12,8 @@ export const OfferCountdownTimer: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(() => calculateTimeLeft());
 
   function calculateTimeLeft(): TimeLeft {
-    // Target is midnight at the end of Monday, November 9, 2026
-    const targetDate = new Date('2026-11-09T23:59:59').getTime();
+    // Target is midnight at the end of Tuesday, November 10, 2026 (Extended by popular demand)
+    const targetDate = new Date('2026-11-10T23:59:59').getTime();
     const now = new Date().getTime();
     const diff = targetDate - now;
 
@@ -41,39 +41,46 @@ export const OfferCountdownTimer: React.FC = () => {
   return (
     <div
       id="offer-countdown-banner"
-      className="w-full max-w-4xl mx-auto px-3 sm:px-6 mt-1 sm:mt-1.5 mb-2 sm:mb-3 z-20 relative"
-      aria-label="Last Day Offer Urgency Timer"
+      className="w-full max-w-3xl mx-auto px-3 sm:px-6 relative z-20"
+      aria-label="Extended Offer Urgency Timer"
     >
-      <div className="relative rounded-2xl sm:rounded-3xl p-3 sm:p-4 bg-gradient-to-r from-[#2a073f]/95 via-[#4a0d6b]/95 to-[#2a073f]/95 border-2 border-amber-400/80 shadow-[0_8px_35px_rgba(0,0,0,0.85),0_0_30px_rgba(245,158,11,0.35)] backdrop-blur-xl text-center overflow-hidden">
-        {/* Shimmer accent */}
-        <span className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 animate-shimmer pointer-events-none" />
+      <div className="relative rounded-2xl sm:rounded-3xl pt-6 sm:pt-7 pb-4 sm:pb-5 px-4 sm:px-6 bg-gradient-to-r from-[#2a073f]/95 via-[#4a0d6b]/95 to-[#2a073f]/95 border-2 border-amber-400/80 shadow-[0_8px_35px_rgba(0,0,0,0.85),0_0_30px_rgba(245,158,11,0.35)] backdrop-blur-xl text-center overflow-visible">
+        {/* Top Border Badge: Today is the last day */}
+        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-30 flex items-center justify-center">
+          {/* Solid opaque cutout mask matching page background to completely eliminate the section border line behind this badge */}
+          <div
+            className="absolute -inset-x-2 -inset-y-1 bg-[#10031c] rounded-full pointer-events-none"
+            aria-hidden="true"
+          />
 
-        {/* Top Urgency Strip: Seats filling fast */}
-        <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 rounded-full bg-amber-400/20 border border-amber-400/60 text-amber-200 text-[11px] sm:text-xs font-black tracking-wider uppercase mb-2 shadow-sm animate-pulse">
-          <Flame className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
-          <span>Seats Are Filling Fast • Limited Seats Remaining</span>
-          <Flame className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+          {/* Solid opaque badge - no transparency fade revealing background lines */}
+          <span className="relative inline-flex items-center gap-1.5 px-3.5 sm:px-5 py-0.5 sm:py-1 rounded-full bg-gradient-to-r from-red-600 via-amber-600 to-red-600 text-white font-black text-[10px] sm:text-xs tracking-widest uppercase shadow-[0_0_20px_rgba(239,68,68,0.85)] border-2 border-yellow-300 whitespace-nowrap select-none">
+            <Flame className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-yellow-200 fill-yellow-200 animate-pulse flex-shrink-0" />
+            <span className="drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Today is the last day</span>
+            <Flame className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-yellow-200 fill-yellow-200 animate-pulse flex-shrink-0" />
+          </span>
         </div>
 
-        {/* Big Bold Headline: Today is the Last Day */}
-        <h2 className="font-cinzel text-base sm:text-xl md:text-2xl font-black text-white tracking-wide uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] mb-1">
-          <span className="gold-text-gradient">Today is the Last Day:</span>{' '}
-          <strong className="text-yellow-300 font-black underline decoration-amber-400/80 underline-offset-4">
-            Monday, November 9, 2026
-          </strong>
+        {/* Shimmer accent */}
+        <span className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 animate-shimmer pointer-events-none rounded-2xl sm:rounded-3xl" />
+
+        {/* Concise Bold Headline: Extended 1 Day Only • Tuesday, Nov 10 */}
+        <h2 className="font-cinzel text-sm sm:text-lg md:text-xl font-black text-white tracking-wide uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] mb-1">
+          <span className="gold-text-gradient">Extended For 1 Day Only:</span>{' '}
+          <strong className="text-yellow-300 font-black">Tuesday, Nov 10</strong>
         </h2>
 
-        {/* Sub-headline: Offer Ends at Midnight */}
-        <p className="text-xs sm:text-sm text-amber-200/90 font-medium mb-3">
-          Offer Valid Until <strong className="text-white font-bold">12:00 AM Midnight Tonight</strong> Only. Once it ends, the 20% discount is gone forever!
+        {/* Breathable, Single-Line Notice (Reduces Congestion, Max Mobile Readability) */}
+        <p className="text-[11px] sm:text-xs md:text-sm text-amber-200/90 font-medium tracking-wide mb-3 sm:mb-4">
+          Today is the 10th — ends tonight at <strong className="text-white font-bold">12:00 AM Midnight</strong> • Limited seats remaining
         </p>
 
-        {/* Minimalist, Marketing-Friendly Timer Display */}
-        <div className="inline-flex items-center justify-center gap-2 sm:gap-3 px-3 sm:px-5 py-2 rounded-xl bg-[#140422]/90 border border-amber-400/60 shadow-inner">
+        {/* Spacious, Marketing-Friendly Timer Display */}
+        <div className="inline-flex items-center justify-center gap-2.5 sm:gap-4 px-4 sm:px-6 py-2 rounded-xl bg-[#140422]/90 border border-amber-400/50 shadow-inner">
           <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 animate-spin-slow flex-shrink-0" />
 
           {/* Hours Box */}
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center min-w-[34px] sm:min-w-[42px]">
             <span className="font-price font-bold text-lg sm:text-2xl text-yellow-300 tracking-tight leading-none">
               {formatDigit(timeLeft.hours)}
             </span>
@@ -82,10 +89,10 @@ export const OfferCountdownTimer: React.FC = () => {
             </span>
           </div>
 
-          <span className="text-amber-400 font-bold text-lg sm:text-xl -mt-2.5">:</span>
+          <span className="text-amber-400/80 font-bold text-base sm:text-lg -mt-2">:</span>
 
           {/* Minutes Box */}
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center min-w-[34px] sm:min-w-[42px]">
             <span className="font-price font-bold text-lg sm:text-2xl text-yellow-300 tracking-tight leading-none">
               {formatDigit(timeLeft.minutes)}
             </span>
@@ -94,10 +101,10 @@ export const OfferCountdownTimer: React.FC = () => {
             </span>
           </div>
 
-          <span className="text-amber-400 font-bold text-lg sm:text-xl -mt-2.5">:</span>
+          <span className="text-amber-400/80 font-bold text-base sm:text-lg -mt-2">:</span>
 
           {/* Seconds Box */}
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center min-w-[34px] sm:min-w-[42px]">
             <span className="font-price font-bold text-lg sm:text-2xl text-yellow-300 tracking-tight leading-none">
               {formatDigit(timeLeft.seconds)}
             </span>

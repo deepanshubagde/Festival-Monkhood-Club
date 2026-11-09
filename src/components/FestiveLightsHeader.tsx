@@ -86,13 +86,18 @@ export const DiyaLamp: React.FC<DiyaLampProps> = ({ className = '', size = 32 })
 };
 
 // Hanging Brass Lantern
-export const HangingLantern: React.FC<{ height?: number; delay?: string }> = ({
+export const HangingLantern: React.FC<{
+  height?: number;
+  delay?: string;
+  className?: string;
+}> = ({
   height = 90,
   delay = '0s',
+  className = '',
 }) => {
   return (
     <div
-      className="flex flex-col items-center animate-lantern-float select-none pointer-events-none"
+      className={`flex flex-col items-center animate-lantern-float select-none pointer-events-none ${className}`}
       style={{ animationDelay: delay }}
     >
       {/* Hanging Chain / Wire */}
@@ -177,23 +182,23 @@ export const FestiveLightsHeader: React.FC = () => {
       {/* Radiant Top Ambience Glow */}
       <div className="absolute top-0 inset-x-0 h-44 bg-gradient-to-b from-[#4a1268]/60 via-[#27083a]/40 to-transparent blur-2xl pointer-events-none -z-10" />
 
-      {/* Hanging Brass Lanterns at Left and Right */}
-      <div className="absolute top-0 left-2 sm:left-6 lg:left-12 z-50 pointer-events-none">
-        <HangingLantern height={50} delay="0s" />
+      {/* Hanging Brass Lanterns at Left and Right - visible on mobile, tablet & desktop */}
+      <div className="absolute top-0 left-1.5 sm:left-6 lg:left-12 z-50 pointer-events-none block">
+        <HangingLantern height={30} delay="0s" className="scale-[0.7] sm:scale-100 origin-top" />
       </div>
-      <div className="absolute top-0 left-16 sm:left-24 lg:left-32 z-50 pointer-events-none hidden sm:block">
-        <HangingLantern height={30} delay="1.8s" />
-      </div>
-
-      <div className="absolute top-0 right-16 sm:right-24 lg:right-32 z-50 pointer-events-none hidden sm:block">
-        <HangingLantern height={30} delay="2.4s" />
-      </div>
-      <div className="absolute top-0 right-2 sm:right-6 lg:right-12 z-50 pointer-events-none">
-        <HangingLantern height={50} delay="1.1s" />
+      <div className="absolute top-0 left-14 sm:left-24 lg:left-32 z-50 pointer-events-none hidden sm:block">
+        <HangingLantern height={26} delay="1.8s" />
       </div>
 
-      {/* Grand Hanging Light Strings (Layer 1 + Layer 2) */}
-      <div className="relative w-full h-24 sm:h-28 overflow-visible pointer-events-none">
+      <div className="absolute top-0 right-14 sm:right-24 lg:right-32 z-50 pointer-events-none hidden sm:block">
+        <HangingLantern height={26} delay="2.4s" />
+      </div>
+      <div className="absolute top-0 right-1.5 sm:right-6 lg:right-12 z-50 pointer-events-none block">
+        <HangingLantern height={30} delay="1.1s" className="scale-[0.7] sm:scale-100 origin-top" />
+      </div>
+
+      {/* Grand Hanging Light Strings (Compact on mobile to maintain vertical breathability) */}
+      <div className="relative w-full h-14 sm:h-22 overflow-visible pointer-events-none">
         <svg
           viewBox="0 0 100 45"
           preserveAspectRatio="none"
@@ -284,38 +289,28 @@ export const FestiveLightsHeader: React.FC = () => {
         </svg>
       </div>
 
-      {/* Centerpiece Festive Header: Ornate Royal Bar with Brand Emblem & Urgency */}
-      <div className="relative -mt-10 sm:-mt-12 px-3 sm:px-6 max-w-5xl mx-auto flex flex-col items-center text-center">
+      {/* Centerpiece Festive Header: Breathable, Uncongested Brand Lockup */}
+      <div className="relative -mt-5 sm:-mt-8 px-3 sm:px-6 max-w-5xl mx-auto flex flex-col items-center text-center">
         {/* Brand Lockup & Festive Medallion */}
-        <div className="relative group inline-flex items-center gap-2.5 px-5 sm:px-8 py-2.5 rounded-full bg-gradient-to-r from-[#2c0b44]/90 via-[#3d115d]/95 to-[#2c0b44]/90 border-2 border-amber-400/70 shadow-[0_0_35px_rgba(245,158,11,0.45),inset_0_1px_1px_rgba(254,240,138,0.5)] backdrop-blur-xl">
-          {/* Left Diya Flame */}
-          <div className="hidden xs:block">
-            <DiyaLamp size={26} />
-          </div>
-
-          <div className="flex items-center space-x-2">
+        <div className="relative group inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-7 py-1.5 sm:py-2.5 rounded-full bg-gradient-to-r from-[#2c0b44]/90 via-[#3d115d]/95 to-[#2c0b44]/90 border-2 border-amber-400/70 shadow-[0_0_30px_rgba(245,158,11,0.4),inset_0_1px_1px_rgba(254,240,138,0.5)] backdrop-blur-xl">
+          <div className="flex items-center space-x-1.5 sm:space-x-2">
             <img
               src="/logo-sm.webp"
               alt="Monkhood Club"
-              className="w-6 h-6 sm:w-7 sm:h-7 object-contain rounded-full border border-amber-400 shadow-[0_0_12px_rgba(251,191,36,0.6)]"
+              className="w-5 h-5 sm:w-6 sm:h-6 object-contain rounded-full border border-amber-400 shadow-[0_0_10px_rgba(251,191,36,0.5)] flex-shrink-0"
             />
-            <span className="font-cinzel text-base sm:text-xl font-black tracking-widest text-white gold-text-gradient uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+            <span className="font-cinzel text-xs sm:text-base font-black tracking-widest text-white gold-text-gradient uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] whitespace-nowrap">
               Monkhood Club
             </span>
           </div>
 
-          <span className="text-amber-400 font-serif">✦</span>
+          <span className="text-amber-400/80 font-serif text-xs sm:text-sm flex-shrink-0">✦</span>
 
-          <div className="inline-flex items-center gap-1.5 font-bold text-xs sm:text-sm text-amber-200">
-            <Sparkles className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
+          <div className="inline-flex items-center gap-1 font-bold text-[11px] sm:text-xs text-amber-200 whitespace-nowrap">
+            <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-300 animate-pulse flex-shrink-0" />
             <span className="tracking-wider uppercase text-yellow-300">
-              Grand Festive Special
+              Festive Special
             </span>
-          </div>
-
-          {/* Right Diya Flame */}
-          <div className="hidden xs:block">
-            <DiyaLamp size={26} />
           </div>
         </div>
       </div>

@@ -24,8 +24,8 @@ export default function App() {
 
       {/* Main Festive Content Stream */}
       <main className="relative z-10">
-        {/* Urgent Last Day Countdown & Seats Warning (Monday, November 9, 2026 - Ends Midnight) */}
-        <div className="mb-2 sm:mb-4">
+        {/* Extended 1-Day Urgency Countdown & Seats Warning (Tuesday, November 10, 2026 - Ends Midnight) */}
+        <div className="mt-3 sm:mt-5 mb-4 sm:mb-6">
           <OfferCountdownTimer />
         </div>
 

@@ -87,23 +87,23 @@ export const PricingSection: React.FC<PricingProps> = ({
 
             {/* Price Box with Strikethroughs and New Price ₹399 */}
             <div className="mb-5 pb-5 sm:pb-6 border-b border-amber-500/40">
-              <div className="flex items-baseline space-x-3">
-                <span className="line-through text-amber-500/50 font-price text-xl sm:text-2xl font-normal">
+              <div className="flex items-baseline space-x-2 sm:space-x-3 flex-wrap gap-y-1">
+                <span className="line-through text-amber-500/50 font-price text-lg sm:text-2xl font-normal">
                   ₹612
                 </span>
-                <span className="line-through text-amber-400/70 font-price text-2xl sm:text-3xl font-semibold">
+                <span className="line-through text-amber-400/70 font-price text-xl sm:text-3xl font-semibold">
                   ₹499
                 </span>
-                <span className="font-price text-6xl sm:text-7xl font-bold gold-text-gradient tracking-tight drop-shadow-[0_2px_20px_rgba(245,158,11,0.7)]">
+                <span className="font-price text-5xl sm:text-7xl font-bold gold-text-gradient tracking-tight drop-shadow-[0_2px_20px_rgba(245,158,11,0.7)]">
                   ₹399
                 </span>
-                <span className="text-sm sm:text-base text-amber-200 font-medium">
+                <span className="text-xs sm:text-base text-amber-200 font-medium">
                   /year
                 </span>
               </div>
 
               <div className="mt-2.5">
-                <span className="inline-block text-[11px] font-extrabold tracking-wider text-slate-950 bg-gradient-to-r from-yellow-300 to-amber-400 border border-yellow-100 px-3.5 py-1 rounded-full shadow-[0_0_15px_rgba(245,158,11,0.5)]">
+                <span className="inline-block text-[10px] sm:text-[11px] font-extrabold tracking-wider text-slate-950 bg-gradient-to-r from-yellow-300 to-amber-400 border border-yellow-100 px-3 sm:px-3.5 py-1 rounded-full shadow-[0_0_15px_rgba(245,158,11,0.5)]">
                   FLAT 20% OFF • EXPIRES TONIGHT AT 12:00 AM MIDNIGHT
                 </span>
               </div>
@@ -154,7 +154,7 @@ export const PricingSection: React.FC<PricingProps> = ({
               Yearly 399/year
             </a>
             <p className="text-[11px] text-center text-amber-200 mt-3 font-semibold">
-              ⚡ Today is the Last Day: Monday, Nov 9 Offer Ends at 12:00 AM Midnight • Once Gone, Gone Forever!
+              ⚡ Extended by Popular Demand: Final Day Tuesday, Nov 10 (Ends 12:00 AM Midnight) • Strictly No Further Extensions!
             </p>
           </div>
         </div>
