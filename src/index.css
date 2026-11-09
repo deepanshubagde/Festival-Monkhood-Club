@@ -90,6 +90,23 @@ body {
   animation: 3s ease-in-out infinite goldPulse;
 }
 
+@keyframes badgeBlink {
+  0%, 100% {
+    filter: brightness(1.2);
+    transform: scale(1);
+    border-color: #fde047;
+  }
+  50% {
+    filter: brightness(0.85);
+    transform: scale(0.98);
+    border-color: #ca8a04;
+  }
+}
+
+.animate-badge-blink {
+  animation: badgeBlink 1.4s ease-in-out infinite;
+}
+
 @keyframes flameFlicker {
   0%, 100% {
     transform: scale(1) rotate(-0.5deg);

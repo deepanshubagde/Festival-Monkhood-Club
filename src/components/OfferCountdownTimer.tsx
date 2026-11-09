@@ -45,18 +45,12 @@ export const OfferCountdownTimer: React.FC = () => {
       aria-label="Extended Offer Urgency Timer"
     >
       <div className="relative rounded-2xl sm:rounded-3xl pt-6 sm:pt-7 pb-4 sm:pb-5 px-4 sm:px-6 bg-gradient-to-r from-[#2a073f]/95 via-[#4a0d6b]/95 to-[#2a073f]/95 border-2 border-amber-400/80 shadow-[0_8px_35px_rgba(0,0,0,0.85),0_0_30px_rgba(245,158,11,0.35)] backdrop-blur-xl text-center overflow-visible">
-        {/* Top Border Badge: Today is the last day */}
+        {/* Top Border Badge: Today is the last day (Zero shadow, clean solid red) */}
         <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-30 flex items-center justify-center">
-          {/* Solid opaque cutout mask matching page background to completely eliminate the section border line behind this badge */}
-          <div
-            className="absolute -inset-x-2 -inset-y-1 bg-[#10031c] rounded-full pointer-events-none"
-            aria-hidden="true"
-          />
-
-          {/* Solid opaque badge - no transparency fade revealing background lines */}
-          <span className="relative inline-flex items-center gap-1.5 px-3.5 sm:px-5 py-0.5 sm:py-1 rounded-full bg-gradient-to-r from-red-600 via-amber-600 to-red-600 text-white font-black text-[10px] sm:text-xs tracking-widest uppercase shadow-[0_0_20px_rgba(239,68,68,0.85)] border-2 border-yellow-300 whitespace-nowrap select-none">
+          {/* Red badge with clean brightness blinking animation - zero shadow */}
+          <span className="relative inline-flex items-center gap-1.5 px-3.5 sm:px-5 py-0.5 sm:py-1 rounded-full bg-gradient-to-r from-red-600 via-rose-600 to-red-600 text-white font-black text-[10px] sm:text-xs tracking-widest uppercase border-2 border-yellow-300 whitespace-nowrap select-none shadow-none animate-badge-blink">
             <Flame className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-yellow-200 fill-yellow-200 animate-pulse flex-shrink-0" />
-            <span className="drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Today is the last day</span>
+            <span className="font-black tracking-wider">Today is the last day</span>
             <Flame className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-yellow-200 fill-yellow-200 animate-pulse flex-shrink-0" />
           </span>
         </div>
