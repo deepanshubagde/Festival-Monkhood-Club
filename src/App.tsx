@@ -1,7 +1,8 @@
 import React from 'react';
 import { FestiveLightsHeader } from './components/FestiveLightsHeader';
 import { AmbientBackground } from './components/AmbientBackground';
-import { LimitedTimeOfferBanner } from './components/LimitedTimeOfferBanner';
+import { OfferCountdownTimer } from './components/OfferCountdownTimer';
+import { RecentPurchaseToast } from './components/RecentPurchaseToast';
 import { HeroBanner } from './components/HeroBanner';
 import { PricingSection } from './components/PricingSection';
 import { AccessGuideSection } from './components/AccessGuideSection';
@@ -23,9 +24,9 @@ export default function App() {
 
       {/* Main Festive Content Stream */}
       <main className="relative z-10">
-        {/* New Section Above the Header Image: Limited Time Offer */}
+        {/* Urgent Last Day Countdown & Seats Warning (Monday, November 9, 2026 - Ends Midnight) */}
         <div className="mb-2 sm:mb-4">
-          <LimitedTimeOfferBanner />
+          <OfferCountdownTimer />
         </div>
 
         {/* Replacement Hero Banner with User's Uploaded Festive Season Special Offer Graphic */}
@@ -61,6 +62,9 @@ export default function App() {
 
       {/* Footer */}
       <MainFooter />
+
+      {/* Real-Time Mobile-Friendly Indian Name Recent Purchase Pop-up (every 7-10s) */}
+      <RecentPurchaseToast />
     </div>
   );
 }

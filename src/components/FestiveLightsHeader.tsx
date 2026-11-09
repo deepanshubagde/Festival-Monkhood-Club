@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Flame } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 interface DiyaLampProps {
   className?: string;
@@ -316,15 +316,6 @@ export const FestiveLightsHeader: React.FC = () => {
           {/* Right Diya Flame */}
           <div className="hidden xs:block">
             <DiyaLamp size={26} />
-          </div>
-        </div>
-
-        {/* Festive Offer Strip - Flat 20% Off in Festive Season */}
-        <div className="mt-3 flex items-center justify-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500/25 via-yellow-400/30 to-amber-500/25 border border-amber-400/60 text-amber-200 font-bold text-xs sm:text-sm shadow-[0_0_20px_rgba(245,158,11,0.3)]">
-            <Flame className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
-            <span className="tracking-wide">FLAT 20% OFF IN FESTIVE SEASON</span>
-            <Sparkles className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
           </div>
         </div>
       </div>

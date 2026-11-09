@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Sparkles, Check, Zap, Flame } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { DiyaLamp } from './FestiveLightsHeader';
 
 interface PricingProps {
@@ -62,12 +62,6 @@ export const PricingSection: React.FC<PricingProps> = ({
     >
       {/* Decorative Ornate Section Header */}
       <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-10">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500/20 via-yellow-400/25 to-amber-500/20 border border-amber-400/50 text-amber-200 text-xs font-bold tracking-widest uppercase mb-3 shadow-[0_0_20px_rgba(245,158,11,0.3)] backdrop-blur-md">
-          <Flame className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
-          <span>FLAT 20% OFF IN FESTIVE SEASON</span>
-          <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
-        </div>
-
         <h2 className="font-cinzel text-2xl sm:text-4xl lg:text-5xl font-black tracking-wide text-white gold-text-gradient drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
           Enlighten Your Life This Festive Season
         </h2>
@@ -79,17 +73,6 @@ export const PricingSection: React.FC<PricingProps> = ({
           id="yearly-membership-card"
           className="relative group rounded-[28px] sm:rounded-[36px] p-6 sm:p-10 bg-gradient-to-b from-[#340b54] via-[#22073a] to-[#140324] border-2 border-yellow-300/90 hover:border-amber-300 festive-card-glow-popular flex flex-col justify-between overflow-visible transition-all duration-300 shadow-[0_15px_50px_rgba(0,0,0,0.9),0_0_40px_rgba(245,158,11,0.35)]"
         >
-          {/* Top Most Popular Golden Crown Badge */}
-          <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-20">
-            <span
-              id="yearly-badge"
-              className="bg-gradient-to-r from-yellow-300 via-amber-400 to-yellow-400 text-slate-950 px-5 py-1.5 rounded-full text-[11px] font-black tracking-wider uppercase shadow-[0_0_30px_rgba(251,191,36,0.9)] flex items-center space-x-1.5 border-2 border-yellow-100 whitespace-nowrap animate-gold-pulse"
-            >
-              <Zap className="w-3.5 h-3.5 text-slate-950 fill-slate-950" />
-              <span>⚡ FLAT 20% OFF IN FESTIVE SEASON</span>
-            </span>
-          </div>
-
           <div>
             <div className="flex items-center justify-between mb-2 pt-2">
               <h3 className="font-cinzel text-2xl sm:text-3xl font-black text-white tracking-wide gold-text-gradient">
@@ -121,7 +104,7 @@ export const PricingSection: React.FC<PricingProps> = ({
 
               <div className="mt-2.5">
                 <span className="inline-block text-[11px] font-extrabold tracking-wider text-slate-950 bg-gradient-to-r from-yellow-300 to-amber-400 border border-yellow-100 px-3.5 py-1 rounded-full shadow-[0_0_15px_rgba(245,158,11,0.5)]">
-                  FLAT 20% OFF IN FESTIVE SEASON
+                  FLAT 20% OFF • EXPIRES TONIGHT AT 12:00 AM MIDNIGHT
                 </span>
               </div>
             </div>
@@ -171,7 +154,7 @@ export const PricingSection: React.FC<PricingProps> = ({
               Yearly 399/year
             </a>
             <p className="text-[11px] text-center text-amber-200 mt-3 font-semibold">
-              ⚡ Flat 20% Off in Festive Season on Full Year Access
+              ⚡ Today is the Last Day: Monday, Nov 9 Offer Ends at 12:00 AM Midnight • Once Gone, Gone Forever!
             </p>
           </div>
         </div>
