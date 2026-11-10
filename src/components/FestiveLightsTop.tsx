@@ -78,9 +78,9 @@ export const FestiveLightsTop: React.FC = () => {
 
           <div className="inline-flex items-center gap-1.5 text-slate-200 font-medium">
             <span className="text-amber-300 font-bold bg-amber-400/20 px-2 py-0.5 rounded border border-amber-400/30">
-              FLAT 20% OFF
+              REGULAR PRICING
             </span>
-            <span>Applied on all memberships</span>
+            <span>Monthly & Yearly Memberships</span>
           </div>
 
           <div className="hidden md:inline-block text-amber-500/60 font-serif">✦</div>

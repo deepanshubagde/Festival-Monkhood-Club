@@ -16,7 +16,7 @@ const steps: Step[] = [
     number: '01',
     title: 'Activate your Subscription',
     description:
-      'Click on "Yearly 399/year" or "Join Yearly" to complete your secure registration (UPI, Cards, Net Banking, etc.).',
+      'Click on "Join Yearly" or "Join Monthly" to complete your secure registration (UPI, Cards, Net Banking, etc.).',
     actionText: 'Instant Membership Setup',
     icon: Smartphone,
     badge: 'Instant Setup',

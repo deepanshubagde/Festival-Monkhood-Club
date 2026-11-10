@@ -30,7 +30,7 @@ export const TopNavbar: React.FC = () => {
             href="#pricing-section"
             className="hover:text-amber-300 transition-colors whitespace-nowrap shrink-0"
           >
-            Festive Offers
+            Membership Plans
           </a>
           <a
             href="#access-guide-section"
@@ -59,7 +59,7 @@ export const TopNavbar: React.FC = () => {
             className="inline-flex items-center space-x-1.5 px-3.5 sm:px-4 py-2 rounded-full font-bold text-xs tracking-wider uppercase text-slate-950 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-500 hover:brightness-110 shadow-[0_0_20px_rgba(245,215,127,0.4)] btn-clicky tap-instant whitespace-nowrap shrink-0 border border-yellow-200"
           >
             <Sparkles className="w-3.5 h-3.5 text-slate-950 flex-shrink-0" />
-            <span>Join Now • 20% Off</span>
+            <span>Join Memberships</span>
           </a>
         </div>
       </div>

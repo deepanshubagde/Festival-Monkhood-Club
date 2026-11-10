@@ -10,24 +10,24 @@ interface PurchaseEvent {
 }
 
 const purchasePool: PurchaseEvent[] = [
-  { name: 'Abhinav', initials: 'AB', city: 'Mumbai', timeAgo: 'just now', tagline: 'Another spot gone' },
-  { name: 'Priya', initials: 'PS', city: 'Delhi', timeAgo: '1m ago', tagline: 'Grabbed 20% festive pass' },
+  { name: 'Abhinav', initials: 'AB', city: 'Mumbai', timeAgo: 'just now', tagline: 'I got on regular pricing' },
+  { name: 'Priya', initials: 'PS', city: 'Delhi', timeAgo: '1m ago', tagline: 'Joined Yearly Membership' },
   { name: 'Rohan', initials: 'RD', city: 'Bengaluru', timeAgo: 'just now', tagline: 'Another spot gone' },
-  { name: 'Sneha', initials: 'SK', city: 'Pune', timeAgo: '2m ago', tagline: 'Claimed Yearly Sangha seat' },
-  { name: 'Rahul', initials: 'RM', city: 'Hyderabad', timeAgo: 'just now', tagline: 'Another spot gone' },
+  { name: 'Sneha', initials: 'SK', city: 'Pune', timeAgo: '2m ago', tagline: 'Bought on regular pricing' },
+  { name: 'Rahul', initials: 'RM', city: 'Hyderabad', timeAgo: 'just now', tagline: 'Joined on regular pricing' },
   { name: 'Ananya', initials: 'AG', city: 'Kolkata', timeAgo: '3m ago', tagline: 'Only few seats left' },
-  { name: 'Vikram', initials: 'VS', city: 'Ahmedabad', timeAgo: 'just now', tagline: 'Another spot gone' },
-  { name: 'Neha', initials: 'NJ', city: 'Jaipur', timeAgo: '1m ago', tagline: 'Grabbed 20% festive pass' },
+  { name: 'Vikram', initials: 'VS', city: 'Ahmedabad', timeAgo: 'just now', tagline: 'I got on regular pricing' },
+  { name: 'Neha', initials: 'NJ', city: 'Jaipur', timeAgo: '1m ago', tagline: 'Joined Monthly Plan' },
   { name: 'Aditya', initials: 'AC', city: 'Chandigarh', timeAgo: 'just now', tagline: 'Another spot gone' },
   { name: 'Pooja', initials: 'PR', city: 'Chennai', timeAgo: '2m ago', tagline: 'Claimed Yearly Sangha seat' },
-  { name: 'Kartik', initials: 'KV', city: 'Indore', timeAgo: 'just now', tagline: 'Another spot gone' },
-  { name: 'Divya', initials: 'DP', city: 'Surat', timeAgo: '1m ago', tagline: 'Only few seats left' },
+  { name: 'Kartik', initials: 'KV', city: 'Indore', timeAgo: 'just now', tagline: 'I got on regular pricing' },
+  { name: 'Divya', initials: 'DP', city: 'Surat', timeAgo: '1m ago', tagline: 'Joined on regular pricing' },
   { name: 'Arjun', initials: 'AM', city: 'Gurugram', timeAgo: 'just now', tagline: 'Another spot gone' },
-  { name: 'Meera', initials: 'MN', city: 'Kochi', timeAgo: '3m ago', tagline: 'Grabbed 20% festive pass' },
-  { name: 'Siddharth', initials: 'SB', city: 'Noida', timeAgo: 'just now', tagline: 'Another spot gone' },
+  { name: 'Meera', initials: 'MN', city: 'Kochi', timeAgo: '3m ago', tagline: 'Joined Yearly Membership' },
+  { name: 'Siddharth', initials: 'SB', city: 'Noida', timeAgo: 'just now', tagline: 'Bought on regular pricing' },
   { name: 'Tanvi', initials: 'TS', city: 'Bhopal', timeAgo: '2m ago', tagline: 'Claimed Yearly Sangha seat' },
-  { name: 'Varun', initials: 'VT', city: 'Lucknow', timeAgo: 'just now', tagline: 'Another spot gone' },
-  { name: 'Ishita', initials: 'IR', city: 'Dehradun', timeAgo: '1m ago', tagline: 'Only few seats left' },
+  { name: 'Varun', initials: 'VT', city: 'Lucknow', timeAgo: 'just now', tagline: 'I got on regular pricing' },
+  { name: 'Ishita', initials: 'IR', city: 'Dehradun', timeAgo: '1m ago', tagline: 'Joined Monthly Plan' },
 ];
 
 export const RecentPurchaseToast: React.FC = () => {
@@ -38,22 +38,22 @@ export const RecentPurchaseToast: React.FC = () => {
   useEffect(() => {
     if (isDismissedByUser) return;
 
-    // Initial pop-up appears shortly after page load (3 seconds)
+    // Initial pop-up appears after a relaxed delay (5.6 seconds)
     const initialTimer = setTimeout(() => {
       setIsVisible(true);
-    }, 2800);
+    }, 5600);
 
-    // Interval to cycle every 8 seconds (displays for 4.2s, pauses for 3.8s)
+    // 2x slower cycle: appears once every 17-18 seconds (displays for ~5s, pauses for ~12s)
     const interval = setInterval(() => {
-      // Hide current
+      // Hide current notification
       setIsVisible(false);
 
-      // Wait a moment before showing the next name
+      // Pause for 11.5 seconds before revealing the next notification
       setTimeout(() => {
         setCurrentIndex((prev) => (prev + 1) % purchasePool.length);
         setIsVisible(true);
-      }, 3600);
-    }, 8500);
+      }, 11500);
+    }, 17000);
 
     return () => {
       clearTimeout(initialTimer);

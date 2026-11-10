@@ -12,7 +12,8 @@ import { HelpSection } from './components/HelpSection';
 import { MainFooter } from './components/MainFooter';
 
 export default function App() {
-  const yearlyCheckoutUrl = 'https://learn.monkhoodclub.com/l/8cbf23b69c';
+  const monthlyCheckoutUrl = 'https://learn.monkhoodclub.com/web/checkout/6a690eba258d6e22aee85fcf';
+  const yearlyCheckoutUrl = 'https://learn.monkhoodclub.com/web/checkout/6a78bec74acf6bf7224468b2';
 
   return (
     <div className="min-h-screen text-slate-100 font-['Outfit',sans-serif] selection:bg-amber-500/40 selection:text-amber-100 antialiased relative overflow-x-hidden bg-[#10031c]">
@@ -34,9 +35,12 @@ export default function App() {
           <HeroBanner />
         </div>
 
-        {/* Festive Value Card (Yearly ₹399 - Flat 20% Off) */}
+        {/* Regular Pricing Stacks (Monthly ₹51 & Yearly ₹499) */}
         <div className="mb-8 sm:mb-14">
-          <PricingSection customYearlyUrl={yearlyCheckoutUrl} />
+          <PricingSection
+            customMonthlyUrl={monthlyCheckoutUrl}
+            customYearlyUrl={yearlyCheckoutUrl}
+          />
         </div>
 
         {/* Access Guide in Royal Plum & Ornate Gold */}
@@ -51,7 +55,10 @@ export default function App() {
 
         {/* Shimmering Action CTAs & Value Pillars */}
         <div className="mb-8 sm:mb-14">
-          <BenefitsSection customYearlyUrl={yearlyCheckoutUrl} />
+          <BenefitsSection
+            customMonthlyUrl={monthlyCheckoutUrl}
+            customYearlyUrl={yearlyCheckoutUrl}
+          />
         </div>
 
         {/* Need Help Card with Contact Options */}
