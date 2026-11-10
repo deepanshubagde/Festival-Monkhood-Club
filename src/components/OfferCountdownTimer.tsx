@@ -86,15 +86,10 @@ export const OfferCountdownTimer: React.FC = () => {
         <span className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 animate-shimmer pointer-events-none rounded-2xl sm:rounded-3xl" />
 
         {/* Concise Bold Headline: Extended 1 Day Only • Tuesday, Nov 10 */}
-        <h2 className="font-cinzel text-sm sm:text-lg md:text-xl font-black text-white tracking-wide uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] mb-1">
+        <h2 className="font-cinzel text-sm sm:text-lg md:text-xl font-black text-white tracking-wide uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] mb-3 sm:mb-4">
           <span className="gold-text-gradient">Extended For 1 Day Only:</span>{' '}
           <strong className="text-yellow-300 font-black">Tuesday, Nov 10</strong>
         </h2>
-
-        {/* Breathable, Single-Line Notice (Reduces Congestion, Max Mobile Readability) */}
-        <p className="text-[11px] sm:text-xs md:text-sm text-amber-200/90 font-medium tracking-wide mb-3 sm:mb-4">
-          Today is the 10th — ends tonight at <strong className="text-white font-bold">12:00 AM Midnight</strong> • Limited seats remaining
-        </p>
 
         {/* Spacious, Marketing-Friendly Timer Display */}
         <div className="inline-flex items-center justify-center gap-2.5 sm:gap-4 px-4 sm:px-6 py-2 rounded-xl bg-[#140422]/90 border border-amber-400/50 shadow-inner">
