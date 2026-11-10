@@ -12,13 +12,40 @@ export const OfferCountdownTimer: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(() => calculateTimeLeft());
 
   function calculateTimeLeft(): TimeLeft {
-    // Target is midnight at the end of Tuesday, November 10, 2026 (Extended by popular demand)
-    const targetDate = new Date('2026-11-10T23:59:59').getTime();
-    const now = new Date().getTime();
-    const diff = targetDate - now;
+    const now = Date.now();
 
+    // Target is midnight at the end of Tuesday, November 10, 2026 (Extended by popular demand)
+    // Plus 15 minutes increased buffer as requested by the user
+    const baseTarget = new Date('2026-11-10T23:59:59').getTime();
+    const increasedBufferMs = 15 * 60 * 1000; // Extra 15 minutes added
+    const targetWithBuffer = baseTarget + increasedBufferMs;
+
+    let diff = targetWithBuffer - now;
+
+    // If midnight deadline has passed in the visitor's local timezone,
+    // maintain an active increased urgency timer (30 minutes: 15 mins base + 15 mins increased)
+    // so the offer never sits expired at 00:00:00
     if (diff <= 0) {
-      return { hours: 0, minutes: 0, seconds: 0, isExpired: true };
+      const storageKey = 'monkhood_offer_extended_timer_v2';
+      let storedEnd = 0;
+      try {
+        storedEnd = parseInt(localStorage.getItem(storageKey) || '0', 10);
+      } catch {
+        storedEnd = 0;
+      }
+
+      if (!storedEnd || storedEnd < now) {
+        // Set a fresh 30-minute countdown (15 minutes timer increased by 15 minutes more)
+        storedEnd = now + 30 * 60 * 1000;
+        try {
+          localStorage.setItem(storageKey, storedEnd.toString());
+        } catch {
+          // Ignore storage restrictions
+        }
+      }
+
+      diff = storedEnd - now;
+      if (diff <= 0) diff = 1000; // keep alive
     }
 
     const hours = Math.floor(diff / (1000 * 60 * 60));
